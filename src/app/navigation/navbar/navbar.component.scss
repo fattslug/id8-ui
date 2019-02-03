@@ -1,0 +1,84 @@
+@import 'src/assets/styles/colors.scss';
+
+.topnav {
+  width: 100vw;
+  background-color: $aviva-yellow;
+  height: 60px;
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 2fr 8fr 1fr;
+
+  @media screen and (max-width: 768px) {
+    z-index: 100;
+    display: block;
+  }
+
+  &-logo {
+    background-image: url('src/assets/images/aviva-logo.svg');
+    height: 100%;
+    width: 8em;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    grid-column: 2 / 3;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+    }  
+  
+  }
+  &-links {
+    height: 100%;
+
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      top: 100%;
+      height: 100vh;
+      width: 40vw;
+      background-color: $white;
+    }
+    @media screen and (max-width: 425px) {
+      width: 60vw;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      height: 100%;
+      flex-direction: row;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+      }
+
+    }
+    li {
+      list-style-type: none;
+      height: 100%;
+      margin: 0 20px;
+      display: flex;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: $aviva-blue;
+      }
+    }
+  }
+}
+
+.content-push {
+  height: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(33, 33, 33, 0.5);
+    width: 100vw;
+    height: 100vh;
+  }
+}
