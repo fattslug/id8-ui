@@ -1,0 +1,28 @@
+@import 'src/assets/styles/colors.scss';
+
+.button {
+  width: auto;
+  padding: .8125em 1.875em;
+  border-radius: .25em;
+  line-height: 1.5625em;
+  margin: 0;
+  min-width: 6.25em;
+  font-weight: 600;
+  font-stretch: normal;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.transparent {
+    background: none;
+  }
+  &.primary {
+    color: $aviva-blue;
+    background-color: $aviva-yellow;
+    border: none;
+  }
+}

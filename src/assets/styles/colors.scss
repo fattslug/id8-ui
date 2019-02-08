@@ -1,4 +1,7 @@
 $aviva-yellow: #FFD900;
+$aviva-yellow-dark-10: mix(black, $aviva-yellow, 10);
+$aviva-yellow-dark-20: mix(black, $aviva-yellow, 20);
+
 $white: #FFFFFF;
 $body-copy-grey: #444444;
 $heading-grey: #5C596D;
@@ -7,6 +10,10 @@ $light-grey: #EEEEEE;
 $lightest-grey: #F9F9F9;
 
 $aviva-blue: #004FB6;
+$aviva-blue-dark-10: mix(black, $aviva-blue, 10);
+$aviva-blue-dark-20: mix(black, $aviva-blue, 20);
+$aviva-blue-light-10: mix(white, $aviva-blue, 10);
+
 $positive-green: #4F9F31;
 $guide-blue: #44C0FF;
 $error-red: #BD2624;

@@ -1,19 +1,26 @@
-<header class="topnav">
-  <div class="menu-toggle"></div>
-  <div class="topnav-logo"></div>
-  <div class="topnav-links">
+<header class="nav">
+  <input type="checkbox" class="nav-toggle" id="navToggle" />
+  <label for="navToggle" class="nav-toggle-label" (click)="toggleNav()">X</label>
+  <div class="nav-logo"></div>
+  <nav class="nav-links">
     <ul>
-      <li class="heading-4 semi-bold">
-        <a href="#">View ideas</a>
+      <li class="heading-4 semi-bold" routerLink="/ideas">
+        <a routerLink="/ideas">View ideas</a>
       </li>
-      <li class="heading-4 semi-bold">
-        <a href="#">Submit idea</a>
+      <li class="heading-4 semi-bold" routerLink="/ideas/add">
+        <a routerLink="/ideas/add">Submit idea</a>
       </li>
     </ul>
-    <div class="topnav-search">Search</div>
-    <div class="topnav-login">Login</div>
-  </div>
+    <div class="nav-action-area">
+      <div class="nav-action-login">
+        <button type="button" class="button primary">Login</button>
+      </div>
+      <div class="nav-action-search">
+        <button type="button" class="button transparent">Search</button>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <div class="content-push"></div>
-<div class="overlay"></div>
+<div class="overlay" *ngIf="isNavOpen" @fadeInOut></div>
