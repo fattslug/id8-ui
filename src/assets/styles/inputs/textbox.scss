@@ -1,0 +1,34 @@
+@import '../colors';
+
+input[type=text] {
+  font-size: 1em;
+  background-color: $white;
+  border: 1px solid $body-copy-grey-light-55;
+  border-radius: .25em;
+  box-shadow: inset 0 2px 2px 0 hsla(0,0%,80%,.5);
+  color: #444;
+  display: block;
+  max-width: 100%;
+  padding: 1em 1.25em;
+  margin-top: .3125em;
+  box-sizing: border-box;
+  position: relative;
+  transition: background-color .35s,border-color .35s,box-shadow .35s,-webkit-box-shadow .35s;
+  width: 100%;
+
+  &::placeholder {
+    color: $body-copy-grey-light-55;
+  }
+
+  &:focus {
+    border-color: $guide-blue;
+    box-shadow: none;
+    outline: none;
+  }
+  &.is-valid {
+    border-color: $positive-green;
+  }
+  &.is-error {
+    border-color: $error-red;
+  }
+}

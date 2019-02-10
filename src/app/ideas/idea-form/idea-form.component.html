@@ -1,1 +1,43 @@
-<div class="heading-0 light">Idea form</div>
+<div class="container">
+  <div class="column">
+
+  </div>
+  <div class="column">
+
+    <div class="screen">
+      <div class="row">
+        <h1 class="heading-1 light ideaform-heading">
+          Submit an idea
+        </h1>
+        <form class="ideaform">
+          <div class="ideaform-area">
+
+            <div class="ideaform-input">
+              <label for="ideaName">Idea title</label>
+              <input maxlength="70" type="text" id="ideaName" placeholder="Enter idea name here..." />
+            </div>
+
+            <div class="ideaform-input">
+              <label for="businessAreaInput">Business area</label>
+              <multiselect [options]="businessAreas" [label]="'Select business areas...'" (selected)="setSelected($event)"></multiselect>
+            </div>
+
+            <div class="ideaform-input">
+              <label for="problemDescription">Problem description</label>
+              <textarea maxlength="300" id="problemDescription" placeholder="Enter problem description here..."></textarea>
+            </div>
+
+            <div class="ideaform-input">
+              <label for="solutionDescription">Solution description</label>
+              <textarea maxlength="300" id="solutionDescription" placeholder="Enter solution description here..."></textarea>
+            </div>
+
+            <button type="submit" class="button primary full-width">Submit</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

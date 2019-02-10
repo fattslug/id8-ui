@@ -1,0 +1,20 @@
+@import 'textbox';
+@import 'textarea';
+@import 'dropdown';
+@import 'multiselect';
+@import 'checkbox';
+@import '../colors';
+
+input, select, textarea {
+  &:focus {
+    border-color: $guide-blue;
+    box-shadow: none;
+    outline: none;
+  }
+  &.is-valid {
+    border-color: $positive-green;
+  }
+  &.is-error {
+    border-color: $error-red;
+  }
+}

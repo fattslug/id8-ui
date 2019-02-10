@@ -1,0 +1,21 @@
+@import 'src/assets/styles/colors.scss';
+
+.screen {
+  margin-top: 3vh;
+}
+
+.ideaform {
+  margin: 0 auto;
+  width: 600px;
+  
+  &-heading {
+    color: $heading-grey;
+    text-align: center;
+    padding-bottom: 3vh;
+    border-bottom: 1px solid $defining-grey;
+  }
+
+  &-input {
+    margin: 2.25em 0;
+  }
+}

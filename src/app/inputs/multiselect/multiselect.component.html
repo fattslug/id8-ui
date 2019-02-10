@@ -1,0 +1,20 @@
+<div id="multiselect" class="dropdown">
+  <label for="multiselect-dropdown" class="dropdown-select" [innerHTML]='_label'></label>
+  <input type="checkbox" id="multiselect-dropdown" class="dropdown-toggle hidden" />
+  <span class="dropdown-ui"></span>
+  <div class="dropdown-menu">
+    <ul class="scrollable-area">
+      <li *ngFor="let option of options">
+        <label class="checkbox" [for]="option.id">
+          <input class="checkbox-input" type="checkbox" [id]="option.id"
+            (change)="updateSelections()" [(ngModel)]="option.selected"
+            [value]="true" name="{{ option.id }}">
+          <span class="checkbox-label">
+            <span class="checkbox-label__inner">{{ option.name }}</span>
+          </span>
+          <span class="a-checkbox__ui"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>

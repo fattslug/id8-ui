@@ -1,0 +1,114 @@
+.dropdown-output {
+  position: absolute;
+  left: 1.25em;
+  top: 0.85em;
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdown-menu {
+  position: relative;
+  background-color: $lightest-grey;
+  height: 0;
+  border: 1px solid transparent;
+  border-top: none;
+  transition: height 0.3s ease-in-out, border-color 0.1s ease 0.3s;
+  overflow: hidden;
+  margin-top: -10px;
+
+  ul {
+    width: 100%;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 300px;
+  }
+
+  .checkbox {
+    display: block;
+    position: relative;
+    padding: 15px 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-grey;
+    }
+  
+    &-input {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+
+      &:checked ~ .checkbox-label {
+        font-weight: 700;
+      }
+      &:checked ~ .checkbox-label:before {
+        border-color: $positive-green;
+        background-color: $positive-green;
+        box-shadow: none;
+      }
+      &:checked ~ .checkbox-label:after {
+        background-color: transparent;
+        background-image: url('src/assets/images/icons/functional/svg/tick-white.svg');
+        background-repeat: no-repeat;
+        background-position: center 7px;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+  
+    &-label {
+      padding-left: 65px;
+  
+      &:before {
+        border: 1px solid $body-copy-grey-light-55;
+        box-shadow: inset 0 2px 2px 0 hsla(0,0%,80%,.5);
+        height: 1.75em;
+        transition: box-shadow .35s,-webkit-box-shadow .35s;
+        width: 25px;
+        border: 1px solid $body-copy-grey-light-55;
+        box-shadow: inset 0 2px 2px 0 hsla(0,0%,80%,.5);
+        background: $white;
+      }
+
+      &:after {
+        height: 25px;
+        width: 25px;
+        transition: transform 0.2s ease;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+      }
+  
+      &:before, &:after {
+        bottom: .46875em;
+        content: " ";
+        display: block;
+        height: 25px;
+        left: .625em;
+        margin-top: .5625em;
+        position: absolute;
+        top: 0;
+        border-radius: .25em;
+        left: 20px;
+        top: .1875em;
+      }
+  
+      &__inner {
+        font-size: 0.75em;
+        line-height: 1em;
+      }
+    }
+  }
+}
+
+.dropdown-toggle:checked ~ .dropdown-menu {
+  height: 300px;
+  border: 1px solid #aaa;
+  border-top: none;
+  transition: height 0.3s ease-in-out, border-color 0.1s ease;
+}

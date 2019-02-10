@@ -24,5 +24,14 @@
     color: $aviva-blue;
     background-color: $aviva-yellow;
     border: none;
+    
+    &:hover {
+      background-color: $aviva-blue;
+      color: $white;
+    }
+  }
+
+  &.full-width {
+    width: 100%;
   }
 }

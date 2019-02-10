@@ -1,3 +1,5 @@
+@import 'colors';
+
 .heading {
   &-0 {
     font-size: 4.375em;
@@ -45,7 +47,14 @@ p {
   font-style: italic
 }
 label, .label {
-  font-size: 1.25em;
+  color: $heading-grey;
+  display: block;
+  font-size: 1.375em;
+  font-style: normal;
+  left: auto;
+  letter-spacing: -.0045em;
+  line-height: 1.363em;
+  margin: 0 0 .4545em;
 }
 
 .extra-light {
