@@ -9,27 +9,27 @@
         <h1 class="heading-1 light ideaform-heading">
           Submit an idea
         </h1>
-        <form class="ideaform">
+        <form class="ideaform" [formGroup]="ideaForm">
           <div class="ideaform-area">
 
             <div class="ideaform-input">
               <label for="ideaName">Idea title</label>
-              <input maxlength="70" type="text" id="ideaName" placeholder="Enter idea name here..." />
+              <input maxlength="70" type="text" id="title" placeholder="Enter idea name here..." name="title" formControlName="title" />
             </div>
 
             <div class="ideaform-input">
               <label for="businessAreaInput">Business area</label>
-              <multiselect [options]="businessAreas" [label]="'Select business areas...'" (selected)="setSelected($event)"></multiselect>
+              <multiselect id="businessAreaInput" [options]="businessAreaOptions" [label]="'Select business areas...'" name="businessAreas" formControlName="businessAreas"></multiselect>
             </div>
 
             <div class="ideaform-input">
               <label for="problemDescription">Problem description</label>
-              <textarea maxlength="300" id="problemDescription" placeholder="Enter problem description here..."></textarea>
+              <textarea maxlength="300" id="problemDescription" placeholder="Enter problem description here..." name="problemDescription" formControlName="problemDescription"></textarea>
             </div>
 
             <div class="ideaform-input">
               <label for="solutionDescription">Solution description</label>
-              <textarea maxlength="300" id="solutionDescription" placeholder="Enter solution description here..."></textarea>
+              <textarea maxlength="300" id="solutionDescription" placeholder="Enter solution description here..." name="solutionDescription" formControlName="solutionDescription"></textarea>
             </div>
 
             <button type="submit" class="button primary full-width">Submit</button>

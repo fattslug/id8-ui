@@ -1,4 +1,6 @@
+import { DropdownOptions } from './../../inputs/multiselect/multiselect.component';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-idea-form',
@@ -9,7 +11,7 @@ export class IdeaFormComponent implements OnInit {
 
   private selected = [];
   public label = 'Select business areas...';
-  public businessAreas = [
+  public businessAreaOptions = [
     {
       id: 0,
       name: 'Actuarial',
@@ -49,13 +51,27 @@ export class IdeaFormComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  public ideaForm: FormGroup;
 
-  ngOnInit() {
+  constructor(
+    private formBuilder: FormBuilder
+  ) {
+    this.ideaForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      businessAreas: [[], Validators.required],
+      problemDescription: ['', Validators.required],
+      solutionDescription: ['', Validators.required]
+    });
   }
 
-  public setSelected(selected) {
-    console.log(selected);
+  ngOnInit() {
+    this.ideaForm.get('businessAreas').valueChanges.subscribe((result) => {
+      console.log(result);
+    });
+  }
+
+  public setSelected(selected: DropdownOptions[]) {
+    this.ideaForm.get('businessAreas').setValue(selected);
   }
 
 }

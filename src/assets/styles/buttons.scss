@@ -7,7 +7,6 @@
   line-height: 1.5625em;
   margin: 0;
   min-width: 6.25em;
-  font-weight: 600;
   font-stretch: normal;
   font-size: 1em;
   transition: all 0.3s ease;
@@ -19,16 +18,25 @@
 
   &.transparent {
     background: none;
+    font-weight: 600;
   }
   &.primary {
     color: $aviva-blue;
     background-color: $aviva-yellow;
     border: none;
+    font-weight: 600;
     
     &:hover {
       background-color: $aviva-blue;
       color: $white;
     }
+  }
+
+  &.tertiary {
+    padding: 0;
+    font-size: 1em;
+    padding: 0.13em 0;
+    border-radius: 0;
   }
 
   &.full-width {

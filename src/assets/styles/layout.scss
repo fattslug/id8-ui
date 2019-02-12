@@ -1,7 +1,10 @@
 .container {
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 8fr 2fr;
+  grid-template-columns: 1.5fr 9.3fr 1.5fr;
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: 1fr 10fr 1fr;
+  }
   @media screen and (max-width: 1024px) {
     grid-template-columns: 0.5fr 11fr 0.5fr;
   }

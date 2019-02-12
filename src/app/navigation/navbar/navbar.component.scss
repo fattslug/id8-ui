@@ -7,7 +7,7 @@
   position: fixed;
   display: grid;
   z-index: 100;
-  grid-template-columns: 2fr 1.3fr 6fr 2fr;
+  grid-template-columns: 1.5fr 1.3fr 8fr 1.5fr;
   @media screen and (max-width: 1440px) {
     grid-template-columns: 1fr 2fr 8fr 1fr;
   }

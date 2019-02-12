@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewIdeasComponent } from './view-ideas/view-ideas.component';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
@@ -15,6 +15,7 @@ import { InputsModule } from '../inputs/inputs.module';
     SharedModule,
     IdeasRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     InputsModule
   ],
   exports: []
