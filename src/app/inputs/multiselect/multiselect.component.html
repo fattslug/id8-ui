@@ -6,11 +6,11 @@
     <ul class="scrollable-area">
 
       <li *ngFor="let option of options">
-        <label class="checkbox" [for]="option.id">
+        <label class="checkbox" [for]="option._id">
 
-          <input class="checkbox-input" type="checkbox" [id]="option.id"
+          <input class="checkbox-input" type="checkbox" [id]="option._id"
             (change)="updateSelected()" [(ngModel)]="option.selected"
-            (click)="onTouched()" [value]="true" name="{{ option.id }}">
+            (click)="onTouched()" [value]="true" name="{{ option._id }}">
           <span class="checkbox-label">
             <span class="checkbox-label__inner">{{ option.name }}</span>
           </span>

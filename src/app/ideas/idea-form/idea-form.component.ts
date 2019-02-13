@@ -2,6 +2,7 @@ import { IdeaService } from './../idea.service';
 import { DropdownOptions } from './../../inputs/multiselect/multiselect.component';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BusinessArea } from '../idea';
 
 @Component({
   selector: 'app-idea-form',
@@ -13,6 +14,7 @@ export class IdeaFormComponent implements OnInit {
   private selected = [];
   public label = 'Select business areas...';
   public ideaForm: FormGroup;
+  public businessAreaOptions: BusinessArea[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,13 +28,14 @@ export class IdeaFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.businessAreaOptions = await this.getBusinessAreas();
     this.ideaForm.get('businessAreas').valueChanges.subscribe((result) => {
       console.log(result);
     });
   }
 
-  private async getBusinessAreas() {
+  private async getBusinessAreas(): Promise<BusinessArea[]> {
     return await this.ideaService.getBusinessAreas();
   }
 

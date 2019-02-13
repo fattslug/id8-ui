@@ -1,1 +1,27 @@
-<div class="heading-0 light">View ideas</div>
+<div class="hero-container">
+  <div class="hero-content">
+    <h1 class="heading-0 font-light">
+      Welcome to <span appId8Logo [logoStyle]="'light'">id[8]</span>
+    </h1>
+    <div class="button-area">
+      <button class="button primary">Submit an idea</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="column"></div>
+  <div class="column">
+    <div class="row">
+      <div class="idea-list">
+        <div class="idea-list__heading">
+          <h2 class="heading-1 font-light">Last 10 ideas</h2>
+        </div>
+        <div class="idea-list__body">
+          <idea-list></idea-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column"></div>
+</div>

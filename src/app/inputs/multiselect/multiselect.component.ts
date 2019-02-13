@@ -94,7 +94,7 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
 }
 
 export interface DropdownOptions {
-  id: number;
+  _id: string;
   name: string;
   selected: boolean;
 }

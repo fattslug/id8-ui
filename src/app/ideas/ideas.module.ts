@@ -1,10 +1,15 @@
+import { UtilitiesModule } from '../utilities/utilities.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-import { ViewIdeasComponent } from './view-ideas/view-ideas.component';
+import {
+  ViewIdeasComponent,
+  IdeaCardComponent,
+  IdeaListComponent
+} from './view-ideas';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { SharedModule } from './shared/shared.module';
@@ -12,14 +17,21 @@ import { IdeasRoutingModule } from './ideas-routing.module';
 import { InputsModule } from '../inputs/inputs.module';
 
 @NgModule({
-  declarations: [ViewIdeasComponent, IdeaFormComponent, DeleteModalComponent],
+  declarations: [
+    ViewIdeasComponent,
+    IdeaFormComponent,
+    DeleteModalComponent,
+    IdeaCardComponent,
+    IdeaListComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
     IdeasRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    InputsModule
+    InputsModule,
+    UtilitiesModule
   ],
   exports: [],
   providers: [HttpClient]

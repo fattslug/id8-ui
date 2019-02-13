@@ -1,5 +1,11 @@
 @import 'colors';
 
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+  color: $heading-grey;
+}
+
 .heading {
   &-0 {
     font-size: 4.375em;
@@ -57,21 +63,26 @@ label, .label {
   margin: 0 0 .4545em;
 }
 
-.extra-light {
+.id8-logo {
+  font-family: 'Inconsolata', monospace;
+  letter-spacing: -5px;
+}
+
+.font-extra-light {
   font-weight: 200;
 }
-.light {
+.font-light {
   font-weight: 300;
 }
-.regular {
+.font-regular {
   font-weight: 400;
 }
-.semi-bold {
+.font-semi-bold {
   font-weight: 600;
 }
-.bold {
+.font-bold {
   font-weight: 700;
 }
-.black {
+.font-black {
   font-weight: 900;
 }
