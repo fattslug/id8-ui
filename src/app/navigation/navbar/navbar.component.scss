@@ -5,13 +5,17 @@
   background-color: $aviva-yellow;
   height: 60px;
   position: fixed;
+  display: -ms-grid;
   display: grid;
   z-index: 100;
+  -ms-grid-columns: 1.5fr 1.3fr 8fr 1.5fr;
   grid-template-columns: 1.5fr 1.3fr 8fr 1.5fr;
   @media screen and (max-width: 1440px) {
+    -ms-grid-columns: 1fr 2fr 8fr 1fr;
     grid-template-columns: 1fr 2fr 8fr 1fr;
   }
   @media screen and (max-width: 1024px) {
+    -ms-grid-columns: 0.5fr 2.5fr 8fr 0.5fr;
     grid-template-columns: 0.5fr 2.5fr 8fr 0.5fr;
   }
   @media screen and (max-width: 768px) {
@@ -61,6 +65,8 @@
     background-position: center center; 
     background-repeat: no-repeat;
     grid-column: 2 / 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     @media screen and (max-width: 768px) {
       margin: 0 auto;
     }  
