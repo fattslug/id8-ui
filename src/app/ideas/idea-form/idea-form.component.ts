@@ -16,6 +16,8 @@ export class IdeaFormComponent implements OnInit {
   public ideaForm: FormGroup;
   public businessAreaOptions: BusinessArea[];
 
+  private showErrors = false;
+
   // Edit mode vars
   public mode = 'new';
   public idea = new Idea();
@@ -47,7 +49,6 @@ export class IdeaFormComponent implements OnInit {
     this.ideaForm.controls.iconObj.valueChanges.subscribe((value) => {
       this.ideaForm.controls.icon.setValue(value.icon);
       this.ideaForm.controls.color.setValue(value.color);
-      console.log('Value Changes:', value);
     });
   }
 
@@ -77,26 +78,43 @@ export class IdeaFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.ideaService.addIdea(this.ideaForm.value).then((result) => {
-      this.router.navigateByUrl('/ideas');
-      this.snackBar.open('Successfully added idea', 'Dismiss', {
-        duration: 2000,
+    if (this.ideaForm.valid) {
+      this.ideaService.addIdea(this.ideaForm.value).then((result) => {
+        this.router.navigateByUrl('/ideas');
+        this.snackBar.open('Successfully added idea', 'Dismiss', {
+          duration: 2000,
+        });
       });
-    });
+    } else {
+      this.showErrors = true;
+    }
   }
 
   public onUpdate() {
-    this.ideaService.updateIdeaByID(this.idea._id, this.ideaForm.value).then((result) => {
-      this.router.navigateByUrl('/ideas');
-      this.snackBar.open('Successfully edited idea', 'Dismiss', {
-        duration: 2000,
+    if (this.ideaForm.valid) {
+      this.ideaService.updateIdeaByID(this.idea._id, this.ideaForm.value).then((result) => {
+        this.router.navigateByUrl('/ideas');
+        this.snackBar.open('Successfully edited idea', 'Dismiss', {
+          duration: 2000,
+        });
       });
-    });
+    } else {
+      this.showErrors = true;
+    }
   }
 
   public setInitialIcon(event) {
     this.ideaForm.controls.icon.setValue(event.icon);
     this.ideaForm.controls.color.setValue(event.color);
+  }
+
+  public shouldShowError(inputName: string): boolean {
+    const input = this.ideaForm.get(inputName);
+    if (this.showErrors === true && input.invalid) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

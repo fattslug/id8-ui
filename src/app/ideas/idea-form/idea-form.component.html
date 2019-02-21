@@ -17,18 +17,27 @@
         <form class="inner-wrapper ideaform" [formGroup]="ideaForm" (ngSubmit)="mode === 'new' ? onSubmit() : onUpdate()" *ngIf="ideaForm">
           <div class="ideaform-area">
 
-            <div class="ideaform-input">
+            <div class="ideaform-input" [ngClass]="{ 'has-error': shouldShowError('title') }">
               <label for="ideaName">Idea title</label>
+              <div class="ideaform-input-error font-semibold" *ngIf="shouldShowError('title')">
+                Please enter a title for your idea.
+              </div>
               <input maxlength="70" type="text" id="title" placeholder="Enter idea name here..." name="title" formControlName="title" />
             </div>
 
-            <div class="ideaform-input">
-              <label for="businessAreaInput">Business area</label>
+            <div class="ideaform-input" [ngClass]="{ 'has-error': shouldShowError('businessAreas') }">
+              <label for="businessAreaInput">Business areas</label>
+              <div class="ideaform-input-error font-semibold" *ngIf="shouldShowError('businessAreas')">
+                Please select the business areas impacted by your idea.
+              </div>
               <multiselect id="businessAreaInput" [options]="businessAreaOptions" [label]="'Select business areas...'" name="businessAreas" formControlName="businessAreas"></multiselect>
             </div>
 
-            <div class="ideaform-input">
+            <div class="ideaform-input" [ngClass]="{ 'has-error': shouldShowError('description') }">
               <label for="description">Description</label>
+              <div class="ideaform-input-error font-semibold" *ngIf="shouldShowError('description')">
+                Please enter a description for your idea.
+              </div>
               <textarea maxlength="300" id="description" placeholder="Enter description here..." name="description" formControlName="description"></textarea>
             </div>
 

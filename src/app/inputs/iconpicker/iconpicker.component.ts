@@ -142,7 +142,6 @@ export class IconpickerComponent implements OnInit, ControlValueAccessor {
   public writeValue(ideaIcon: IdeaIcon) {
     this.icon.icon = ideaIcon.icon || this.icon.icon;
     this.icon.color = ideaIcon.color || this.icon.color;
-    console.log('Writing Value:', this.icon);
     this.onChange(this.value);
   }
 

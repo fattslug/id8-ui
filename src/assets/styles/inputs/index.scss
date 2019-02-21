@@ -12,10 +12,21 @@ input, select, textarea {
     box-shadow: none;
     outline: none;
   }
-  &.is-valid {
+}
+
+.is-valid {
+  input, select, textarea, .dropdown-select {
     border-color: $positive-green;
   }
-  &.is-error {
+  .dropdown-select ~ .dropdown-ui {
+    background-position: -74px;
+  }
+}
+.has-error {
+  input, select, textarea, .dropdown-select {
     border-color: $error-red;
+  }
+  .dropdown-select ~ .dropdown-ui {
+    background-position: -32px;
   }
 }

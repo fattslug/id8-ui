@@ -10,7 +10,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import {
   ViewIdeasComponent,
-  IdeaCardComponent,
   IdeaListComponent
 } from './view-ideas';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
@@ -25,7 +24,6 @@ import { IdeaDetailsComponent } from './view-ideas/idea-details/idea-details.com
     ViewIdeasComponent,
     IdeaFormComponent,
     DeleteModalComponent,
-    IdeaCardComponent,
     IdeaListComponent,
     IdeaDetailsComponent
   ],

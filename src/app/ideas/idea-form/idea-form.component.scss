@@ -14,5 +14,23 @@
 
   &-input {
     margin: 2.25em 0;
+    position: relative;
+
+    &-error {
+      margin: 0 0 .9375em 2.1875em;
+      border-radius: 5px;
+      color: $error-red;
+
+      &:before {
+        background-image: url(src/assets/images/icons/system/svg/error.svg);
+        content: "";
+        display: block;
+        font-size: 16px;
+        height: 25px;
+        left: 0;
+        position: absolute;
+        width: 25px;
+      }
+    }
   }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="System-icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="System-Icons-1.2" transform="translate(-967.000000, -424.000000)">
+            <g id="Group-4-Copy-2" transform="translate(967.000000, 424.000000)">
+                <g id="Group-3">
+                    <polygon id="Rectangle-4" fill="#BD2624" points="12.5 0 25 25 0 25"></polygon>
+                    <path d="M11.732,17.304 L13.268,17.304 L13.604,12.408 L13.684,10.28 L11.316,10.28 L11.396,12.408 L11.732,17.304 Z M12.5,21.192 C13.316,21.192 13.924,20.552 13.924,19.72 C13.924,18.872 13.316,18.232 12.5,18.232 C11.684,18.232 11.076,18.872 11.076,19.72 C11.076,20.552 11.684,21.192 12.5,21.192 Z" id="!" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

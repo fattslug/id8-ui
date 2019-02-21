@@ -61,7 +61,6 @@ export class IdeaListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('OnInit');
     this.ideaService.getIdeas();
   }
 
