@@ -139,13 +139,4 @@ export class IdeaFormComponent implements OnInit {
     }
   }
 
-  public shouldShowError(inputName: string): boolean {
-    const input = this.ideaForm.get(inputName);
-    if (this.showErrors === true && input.invalid) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
 }
