@@ -57,3 +57,22 @@
     }
   }
 }
+
+.businessarea {
+  &-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  &-item {
+    border: 1px solid $defining-grey;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 5px 10px;
+    color: $defining-grey-dark-20;
+    margin: 5px 5px 0 0;
+  }
+}

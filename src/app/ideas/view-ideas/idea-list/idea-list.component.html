@@ -15,8 +15,8 @@
             {{ idea.description | ellipses:100 }}
           </p>
           <div class="idealist-card__content-tags">
-            <ul>
-              <li *ngFor="let businessArea of idea.businessAreas">
+            <ul class="businessarea-list">
+              <li class="businessarea-item" *ngFor="let businessArea of idea.businessAreas">
                 {{ businessArea.name }}
               </li>
             </ul>

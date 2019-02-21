@@ -104,8 +104,10 @@ export class IdeaFormComponent implements OnInit {
   }
 
   public setInitialIcon(event) {
-    this.ideaForm.controls.icon.setValue(event.icon);
-    this.ideaForm.controls.color.setValue(event.color);
+    if (!this.ideaForm.controls.iconObj.value.icon) {
+      this.ideaForm.controls.icon.setValue(event.icon);
+      this.ideaForm.controls.color.setValue(event.color);
+    }
   }
 
   public shouldShowError(inputName: string): boolean {
