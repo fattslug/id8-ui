@@ -104,9 +104,10 @@ export class IdeaFormComponent implements OnInit {
   }
 
   public setInitialIcon(event) {
-    if (!this.ideaForm.controls.iconObj.value.icon) {
-      this.ideaForm.controls.icon.setValue(event.icon);
-      this.ideaForm.controls.color.setValue(event.color);
+    const ideaForm = this.ideaForm.controls;
+    if (!ideaForm.iconObj.value.icon) {
+      ideaForm.icon.setValue(event.icon);
+      ideaForm.color.setValue(event.color);
     }
   }
 
