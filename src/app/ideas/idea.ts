@@ -2,8 +2,9 @@ export class Idea {
   public _id?: string;
   public title: string;
   public businessAreas: BusinessArea[];
-  public problemDescription: string;
-  public solutionDescription: string;
+  public description: string;
+  public icon: string;
+  public color: string;
   public dateSubmitted?: Date;
   public dateEdited?: Date;
 }

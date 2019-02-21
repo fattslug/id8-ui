@@ -1,3 +1,28 @@
-<p>
-  idea-list works!
-</p>
+<div class="idealist" *ngIf="ideas">
+  <ul class="idealist-column" *ngFor="let column of ideasGrid.columns; let i = index" [@fadeIn]="{ value: ':enter', params: { delay: 100 * (i + 1) } }">
+    <li class="idealist-item" *ngFor="let idea of column" (click)="openIdeaModal(idea)">
+      <div class="idealist-card">
+        <div class="idealist-card__image" [ngStyle]="{ backgroundColor: idea.color }">
+          <img class="icon md"
+            [src]="iconRoot + 'white/' + idea.icon + '-white.svg'"
+          />
+        </div>
+        <div class="idealist-card__content">
+          <h3 class="idealist-card__content-title">
+            {{ idea.title }}
+          </h3>
+          <p class="idealist-card__content-description">
+            {{ idea.description | ellipses:100 }}
+          </p>
+          <div class="idealist-card__content-tags">
+            <ul>
+              <li *ngFor="let businessArea of idea.businessAreas">
+                {{ businessArea.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

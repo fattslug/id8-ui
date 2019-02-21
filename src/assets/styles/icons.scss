@@ -1,0 +1,22 @@
+i, img.icon {
+  display: block;
+  background-size: contain;
+  background-position: center;
+
+  &.sm {
+    height: 45px;
+    width: 45px;
+  }
+  &.md {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+.functional {
+  &.svg {
+    &.checkmark {
+      background-image: url('src/assets/images/icons/system/svg/circled-tick-white.svg');
+    }
+  }
+}

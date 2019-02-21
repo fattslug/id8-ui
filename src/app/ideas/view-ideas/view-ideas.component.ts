@@ -1,3 +1,4 @@
+import { IdeaService } from './../idea.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewIdeasComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public ideaService: IdeaService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public getIdeas() {
+    this.ideaService.getIdeas();
   }
 
 }

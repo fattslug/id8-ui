@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import {
   ViewIdeasComponent,
   IdeaCardComponent,
@@ -15,6 +18,7 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { SharedModule } from './shared/shared.module';
 import { IdeasRoutingModule } from './ideas-routing.module';
 import { InputsModule } from '../inputs/inputs.module';
+import { IdeaDetailsComponent } from './view-ideas/idea-details/idea-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { InputsModule } from '../inputs/inputs.module';
     IdeaFormComponent,
     DeleteModalComponent,
     IdeaCardComponent,
-    IdeaListComponent
+    IdeaListComponent,
+    IdeaDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -31,9 +36,14 @@ import { InputsModule } from '../inputs/inputs.module';
     FormsModule,
     ReactiveFormsModule,
     InputsModule,
-    UtilitiesModule
+    UtilitiesModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [],
-  providers: [HttpClient]
+  providers: [HttpClient],
+  entryComponents: [
+    IdeaDetailsComponent
+  ]
 })
 export class IdeasModule { }

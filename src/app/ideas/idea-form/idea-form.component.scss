@@ -5,13 +5,6 @@
 }
 
 .ideaform {
-  margin: 0 auto;
-  width: 600px;
-
-  @media screen and (max-width: 768px) {
-    width: 85vw;
-  }
-  
   &-heading {
     color: $heading-grey;
     text-align: center;

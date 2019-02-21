@@ -1,12 +1,20 @@
+<div class="hero hero-container small">
+  <div class="hero-content">
+    <h1 *ngIf="mode === 'new'" class="heading-1 font-light">
+        Submit an idea
+      </h1>
+      <h1 *ngIf="mode === 'edit'" class="heading-1 font-light">
+        Edit an idea
+      </h1>
+  </div>
+</div>
+  
 <div class="container">
   <div class="content">
 
     <div class="screen">
       <div class="row">
-        <h1 class="heading-1 font-light ideaform-heading">
-          Submit an idea
-        </h1>
-        <form class="ideaform" [formGroup]="ideaForm">
+        <form class="inner-wrapper ideaform" [formGroup]="ideaForm" (ngSubmit)="mode === 'new' ? onSubmit() : onUpdate()" *ngIf="ideaForm">
           <div class="ideaform-area">
 
             <div class="ideaform-input">
@@ -20,17 +28,16 @@
             </div>
 
             <div class="ideaform-input">
-              <label for="problemDescription">Problem description</label>
-              <textarea maxlength="300" id="problemDescription" placeholder="Enter problem description here..." name="problemDescription" formControlName="problemDescription"></textarea>
+              <label for="description">Description</label>
+              <textarea maxlength="300" id="description" placeholder="Enter description here..." name="description" formControlName="description"></textarea>
             </div>
 
             <div class="ideaform-input">
-              <label for="solutionDescription">Solution description</label>
-              <textarea maxlength="300" id="solutionDescription" placeholder="Enter solution description here..." name="solutionDescription" formControlName="solutionDescription"></textarea>
+              <label>Select an icon for your idea</label>
+              <iconpicker name="icon" formControlName="iconObj" (setDefault)="setInitialIcon($event)"></iconpicker>
             </div>
 
-            <button type="submit" class="button primary full-width" (click)="onSubmit()">Submit</button>
-
+            <button type="submit" class="button primary full-width">{{ mode === 'new' ? 'Submit' : 'Update' }}</button>
           </div>
         </form>
       </div>

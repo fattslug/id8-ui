@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="24" viewBox="0 0 96 24">
+  <defs>
+    <rect id="add-a" width="24" height="24"/>
+    <rect id="add-c" width="24" height="24" x="24"/>
+    <rect id="add-e" width="24" height="24" x="48"/>
+    <rect id="add-g" width="24" height="24" x="72"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="add-b" fill="#fff">
+      <use xlink:href="#add-a"/>
+    </mask>
+    <use fill="#000" opacity="0" xlink:href="#add-a"/>
+    <g mask="url(#add-b)">
+      <path fill="#004FB6" fill-rule="nonzero" d="M9,7 L16,7 L16,9 L9,9 L9,16 L7,16 L7,9 L0,9 L0,7 L7,7 L7,0 L9,0 L9,7 Z" transform="translate(4 4)"/>
+    </g>
+    <mask id="add-d" fill="#fff">
+      <use xlink:href="#add-c"/>
+    </mask>
+    <use fill="#000" opacity="0" xlink:href="#add-c"/>
+    <g fill="#FFF" fill-rule="nonzero" mask="url(#add-d)">
+      <path d="M9,7 L16,7 L16,9 L9,9 L9,16 L7,16 L7,9 L0,9 L0,7 L7,7 L7,0 L9,0 L9,7 Z" transform="translate(28 4)"/>
+    </g>
+    <mask id="add-f" fill="#fff">
+      <use xlink:href="#add-e"/>
+    </mask>
+    <use fill="#000" opacity="0" xlink:href="#add-e"/>
+    <g fill="#CCC" fill-rule="nonzero" mask="url(#add-f)">
+      <path d="M9,7 L16,7 L16,9 L9,9 L9,16 L7,16 L7,9 L0,9 L0,7 L7,7 L7,0 L9,0 L9,7 Z" transform="translate(52 4)"/>
+    </g>
+    <mask id="add-h" fill="#fff">
+      <use xlink:href="#add-g"/>
+    </mask>
+    <use fill="#000" opacity="0" xlink:href="#add-g"/>
+    <g fill="#5C596D" fill-rule="nonzero" mask="url(#add-h)">
+      <path d="M9,7 L16,7 L16,9 L9,9 L9,16 L7,16 L7,9 L0,9 L0,7 L7,7 L7,0 L9,0 L9,7 Z" transform="translate(76 4)"/>
+    </g>
+  </g>
+</svg>

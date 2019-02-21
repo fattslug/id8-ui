@@ -1,0 +1,17 @@
+@import 'src/assets/styles/colors.scss';
+
+.idea {
+  &-icon {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-data {
+    padding: 30px;
+  }
+  &-title {
+    margin-bottom: 2em;
+  }
+}

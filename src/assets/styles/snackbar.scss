@@ -1,0 +1,13 @@
+.mat-snack-bar-container {
+  margin: 24px auto !important;
+  background-color: $positive-green;
+  
+  .mat-simple-snackbar {
+    span {
+      color: $white;
+    }
+    .mat-simple-snackbar-action {
+      color: $white;
+    }
+  }
+}

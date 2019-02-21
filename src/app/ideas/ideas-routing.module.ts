@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ViewIdeasComponent } from './view-ideas/view-ideas.component';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
+import { IdeaDetailsComponent, ViewIdeasComponent } from './view-ideas';
 
 const routes: Routes = [
   {
@@ -9,6 +9,12 @@ const routes: Routes = [
     component: ViewIdeasComponent
   }, {
     path: 'add',
+    component: IdeaFormComponent
+  }, {
+    path: ':ideaID',
+    component: IdeaDetailsComponent
+  }, {
+    path: 'edit/:ideaID',
     component: IdeaFormComponent
   }
 ];

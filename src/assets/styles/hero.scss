@@ -1,0 +1,27 @@
+.hero {
+  &.extra-small {
+    height: 10vh;
+  }
+  &.small {
+    height: 20vh;
+  }
+  &.medium {
+    height: 40vh;
+  }
+  &-container {
+    width: 100%;
+    background-color: $body-copy-grey-dark-25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-content {
+    h1 {
+      color: $white;
+    }
+  }
+
+  .button-area {
+    margin-top: 2em;
+  }
+}

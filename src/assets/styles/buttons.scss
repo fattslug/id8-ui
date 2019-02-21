@@ -11,6 +11,7 @@
   font-size: 1em;
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
 
   &:focus {
     outline: none;
@@ -36,11 +37,47 @@
     }
   }
 
+  &.secondary {
+    color: $aviva-blue;
+    background-color: transparent;
+    border: 1px solid $defining-grey;
+    font-weight: 600;
+
+    &:hover {
+      background-color: $aviva-blue;
+      color: $white;
+      border-color: $aviva-blue;
+    }
+  }
+
   &.tertiary {
     padding: 0;
     font-size: 1em;
     padding: 0.13em 0;
     border-radius: 0;
+  }
+
+  &.edit {
+    padding-right: 3.8125em;
+
+    &::after {
+      background-image: url('src/assets/images/icons/system/svg/edit.svg');
+      background-position: -4px 13px;
+      width: 16px;
+      background-repeat: no-repeat;
+      background-size: 96px;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      right: 1.875em;
+      top: 0;
+    }
+    &:hover {
+      &::after {
+        background-position: -28px 13px;
+      }
+    }
   }
 
   &.full-width {

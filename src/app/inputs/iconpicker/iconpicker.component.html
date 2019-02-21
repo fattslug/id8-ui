@@ -1,0 +1,71 @@
+<!-- Icon Display -->
+<label for="iconPicker" class="iconpicker-circle" [ngStyle]="{ backgroundColor: icon.color }" (click)="onTouched()">
+  <div class="iconpicker-icon">
+    <img class="icon md" [src]="iconRoot + 'white/' + icon.icon + '-white.svg'" />
+  </div>
+</label>
+<input type="checkbox" id="iconPicker" class="iconpicker-checkbox" />
+<!-- END Icon Display -->
+
+<div class="iconpicker-downarrow">
+  <div class="arrow"></div>
+</div>
+
+<div class="iconpicker iconpicker-container">
+  <div class="iconpicker-selector">
+
+    <!-- Icon selector screen -->
+    <ul *ngIf="screen === 'icons'" class="iconpicker-icon-list" @swipeFromLeft>
+      <li *ngFor="let iconName of iconArray">
+
+        <div>
+          <input type="radio" [id]="'icon-'+iconName" [name]="iconName"
+            class="iconpicker-icon-option" [value]="iconName" [(ngModel)]="icon.icon" (change)="updateIcon()"
+          />
+          <label [for]="'icon-'+iconName" class="iconpicker-icon-label">
+            <img class="icon sm"
+              [src]="iconRoot + (icon.icon === iconName ? 'white/' : 'dark/') + iconName + (icon.icon === iconName ? '-white.svg' : '-dark.svg')"
+            />
+          </label>
+        </div>
+
+      </li>
+    </ul>
+    <!-- END Icon selector screen -->
+
+    <!-- Icon selector screen -->
+    <ul *ngIf="screen === 'colors'" class="iconpicker-color-list" @swipeFromRight>
+      <li *ngFor="let colorName of colorArray">
+
+        <input type="radio" [id]="'color-'+colorName" [name]="colorName"
+          class="iconpicker-color-option" [value]="colorName" [(ngModel)]="icon.color" (change)="updateIcon()"
+        />
+        <label [for]="'color-'+colorName" class="iconpicker-color-label"
+          [ngStyle]="{ backgroundColor: colorName }" [ngClass]="{ 'selected': colorName === icon.color }">
+          <i *ngIf="colorName === icon.color" class="functional svg sm checkmark"></i>
+        </label>
+
+      </li>
+    </ul>
+    <!-- END Icon selector screen -->
+
+  </div>
+
+  <!-- Selector menu -->
+  <div class="iconpicker-menu">
+    <input type="radio" id="icons" name="menu" checked
+      class="iconpicker-menu-input icons-input"
+      value="icons" [(ngModel)]="screen" />
+
+    <input type="radio" id="colors" name="menu"
+      class="iconpicker-menu-input colors-input"
+      value="colors" [(ngModel)]="screen" />
+
+    <ul>
+      <li class="icons-label"><label for="icons">Icons</label></li>
+      <li class="colors-label"><label for="colors">Colors</label></li>
+    </ul>
+  </div>
+  <!-- END Selector menu -->
+
+</div>

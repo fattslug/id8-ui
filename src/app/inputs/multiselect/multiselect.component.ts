@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, forwardRef, HostBinding } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -16,6 +17,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class MultiselectComponent implements OnInit, ControlValueAccessor {
 
+  public selected: DropdownOption[] = [];
+
   @Input()
   disabled = false;
   @HostBinding('style.opacity')
@@ -24,7 +27,18 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
   }
 
   @Input()
-  options: DropdownOptions[];
+  set options(options: DropdownOption[]) {
+    if (this.selected && this.selected.length) {
+      this._options = options.map((option: DropdownOption) => {
+        option.selected = this.selected.filter((selection) => selection._id === option._id).length ? true : false;
+        return option;
+      });
+      this.updateSelected();
+    } else {
+      this._options = options;
+    }
+  }
+  public _options: DropdownOption[];
 
   @Input()
   set label(label: string) {
@@ -34,13 +48,11 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
   public _label: string;
   private originalLabel: string;
 
-  get value(): DropdownOptions[] {
+  get value(): DropdownOption[] {
     return this.selected;
   }
 
-  public selected: DropdownOptions[];
-
-  public onChange = (selections: DropdownOptions[]) => {};
+  public onChange = (selections: DropdownOption[]) => {};
   public onTouched = () => {};
 
 
@@ -52,9 +64,9 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
   public updateSelected() {
     if (!this.disabled) {
       this._label = '<b>';
-      const selected: DropdownOptions[] = [];
+      const selected: DropdownOption[] = [];
 
-      this.options.forEach((business) => {
+      this._options.forEach((business) => {
         if (business.selected) {
           selected.push(business);
           if (this._label === '<b>') {
@@ -75,12 +87,12 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  public writeValue(selected: DropdownOptions[]) {
+  public writeValue(selected: DropdownOption[]) {
     this.selected = selected;
     this.onChange(this.value);
   }
 
-  public registerOnChange(fn: (selected: DropdownOptions[]) => void): void {
+  public registerOnChange(fn: (selected: DropdownOption[]) => void): void {
     this.onChange = fn;
   }
 
@@ -93,7 +105,7 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
   }
 }
 
-export interface DropdownOptions {
+export interface DropdownOption {
   _id: string;
   name: string;
   selected: boolean;
