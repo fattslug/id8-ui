@@ -2,6 +2,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { transition, style, animate, trigger } from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+
+import { LoginModalComponent } from 'src/app/authentication/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +29,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -40,8 +44,16 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  toggleNav() {
+  public toggleNav() {
     this.menuForm.controls.menuCheck.setValue(!this.menuForm.controls.menuCheck.value);
+  }
+
+  public openLoginModal() {
+    const dialogRef = this.dialog.open(LoginModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
 
 }

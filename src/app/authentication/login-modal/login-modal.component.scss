@@ -1,0 +1,21 @@
+.loginform {
+  padding: 30px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  &-input {
+    margin: 15px 20px;
+  }
+
+  &-buttonarea {
+    margin: 40px 20px 0;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      width: 30%;
+    }
+  }
+}
