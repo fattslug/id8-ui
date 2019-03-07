@@ -200,6 +200,15 @@
           border-bottom: 4px solid $aviva-blue;
         }
       }
+      .nav-action-user {
+        font-weight: 600;
+        color: $white;
+        height: 100%;
+        background-color: $aviva-blue;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+      }
     }
 
     @media screen and (max-width: 768px) {

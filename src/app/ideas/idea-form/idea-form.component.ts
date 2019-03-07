@@ -83,6 +83,7 @@ export class IdeaFormComponent implements OnInit {
         this.router.navigateByUrl('/ideas');
         this.snackBar.open('Successfully added idea', 'Dismiss', {
           duration: 2000,
+          panelClass: 'success'
         });
       });
     } else {
@@ -96,6 +97,7 @@ export class IdeaFormComponent implements OnInit {
         this.router.navigateByUrl('/ideas');
         this.snackBar.open('Successfully edited idea', 'Dismiss', {
           duration: 2000,
+          panelClass: 'success'
         });
       });
     } else {

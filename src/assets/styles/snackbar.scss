@@ -1,6 +1,12 @@
 .mat-snack-bar-container {
   margin: 24px auto !important;
-  background-color: $positive-green;
+
+  &.error {
+    background-color: $error-red;
+  }
+  &.success {
+    background-color: $positive-green;
+  }
   
   .mat-simple-snackbar {
     span {

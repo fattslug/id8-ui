@@ -1,6 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login-modal',
@@ -12,7 +13,7 @@ export class LoginModalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthenticationService
+    public dialogRef: MatDialogRef<LoginModalComponent>
   ) { }
 
   ngOnInit() {
@@ -23,8 +24,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   public doLogin() {
-    console.log('Logging in...');
-    this.authService.login(this.loginForm.value);
+    this.dialogRef.close(this.loginForm.value);
   }
 
 }

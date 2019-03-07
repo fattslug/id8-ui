@@ -1,5 +1,5 @@
+import { AuthGuardService } from './../authentication/authentication.guard';
 import { UtilitiesModule } from '../utilities/utilities.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,10 +38,13 @@ import { SharedModule } from './shared/shared.module';
     InputsModule,
     UtilitiesModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   exports: [],
-  providers: [HttpClient],
+  providers: [
+    HttpClient,
+    AuthGuardService
+  ],
   entryComponents: [
     IdeaDetailsComponent
   ]

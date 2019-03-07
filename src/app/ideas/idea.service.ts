@@ -1,6 +1,6 @@
 import { Idea, BusinessArea } from './idea';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { OperatorFunction, Observable, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -16,9 +16,14 @@ export class IdeaService {
   ) { }
 
   public addIdea(idea: Idea): Promise<string> {
+    let headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
+    
     return new Promise((resolve, reject) => {
       this.http.post<Idea>('http://localhost:3001/ideas/', {
         idea: idea
+      }, {
+        headers: headers,
+        withCredentials: true
       }).pipe(
         map(savedIdea => savedIdea._id),
         catchError(this.handleError)
@@ -34,7 +39,9 @@ export class IdeaService {
       filterParams = this.buildFilterParams(filter);
     }
 
-    this.http.get<Idea[]>(`http://localhost:3001/ideas${filterParams}`).pipe(
+    this.http.get<Idea[]>(`http://localhost:3001/ideas${filterParams}`, {
+      withCredentials: true
+    }).pipe(
       catchError(this.handleError)
     ).toPromise().then((ideas: Idea[]) => {
       this.ideas.next(ideas);
@@ -53,7 +60,9 @@ export class IdeaService {
   }
 
   public getIdeaByID(ideaID: string): Promise<Idea> {
-    return this.http.get<Idea>(`http://localhost:3001/ideas/${ideaID}`).pipe(
+    return this.http.get<Idea>(`http://localhost:3001/ideas/${ideaID}`, {
+      withCredentials: true
+    }).pipe(
       catchError(this.handleError)
     ).toPromise().then((idea: Idea) => {
       return idea;
@@ -61,8 +70,13 @@ export class IdeaService {
   }
 
   public updateIdeaByID(ideaID: string, idea: Idea): Promise<Idea> {
+    let headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
+
     return this.http.put<Idea>(`http://localhost:3001/ideas/${ideaID}`, {
       idea: idea
+    }, {
+      headers: headers,
+      withCredentials: true
     }).pipe(
       catchError(this.handleError)
     ).toPromise().then((updatedIdea: Idea) => {
@@ -72,7 +86,9 @@ export class IdeaService {
 
   public getBusinessAreas(): Promise<BusinessArea[]> {
     return new Promise((resolve, reject) => {
-      this.http.get<BusinessArea[]>('http://localhost:3001/businessareas/')
+      this.http.get<BusinessArea[]>('http://localhost:3001/businessareas/', {
+        withCredentials: true
+      })
       .pipe(
         catchError(this.handleError)
       ).toPromise().then((result => {

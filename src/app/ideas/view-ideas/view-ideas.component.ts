@@ -1,5 +1,8 @@
+import { AuthenticationService } from './../../authentication/authentication.service';
 import { IdeaService } from './../idea.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginModalComponent } from 'src/app/authentication/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-view-ideas',
@@ -9,7 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class ViewIdeasComponent implements OnInit {
 
   constructor(
-    public ideaService: IdeaService
+    public ideaService: IdeaService,
+    public authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -17,6 +21,12 @@ export class ViewIdeasComponent implements OnInit {
 
   public getIdeas() {
     this.ideaService.getIdeas();
+  }
+
+  public openLoginModal() {
+    this.authService.openLoginModal().catch((e) => {
+      console.log('Error logging in:', e);
+    });
   }
 
 }

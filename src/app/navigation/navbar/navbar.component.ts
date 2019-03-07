@@ -5,6 +5,7 @@ import { Router, NavigationStart } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { LoginModalComponent } from 'src/app/authentication/login-modal/login-modal.component';
+import { AuthenticationService } from './../../authentication/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -30,7 +31,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -49,10 +51,8 @@ export class NavbarComponent implements OnInit {
   }
 
   public openLoginModal() {
-    const dialogRef = this.dialog.open(LoginModalComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
+    this.authService.openLoginModal().catch((e) => {
+      console.log('Error logging in:', e);
     });
   }
 

@@ -1,3 +1,5 @@
+import { User } from './../authentication/authentication.service';
+
 export class Idea {
   public _id?: string;
   public title: string;
@@ -7,6 +9,7 @@ export class Idea {
   public color: string;
   public dateSubmitted?: Date;
   public dateEdited?: Date;
+  public author?: User;
 }
 
 export class BusinessArea {

@@ -7,13 +7,16 @@
       <li class="heading-4 font-semibold" routerLink="/ideas">
         <a routerLink="/ideas">View ideas</a>
       </li>
-      <li class="heading-4 font-semibold" routerLink="/ideas/add">
+      <li class="heading-4 font-semibold" *ngIf="authService.isAuthenticated" routerLink="/ideas/add">
         <a routerLink="/ideas/add">Submit idea</a>
       </li>
     </ul>
     <div class="nav-action-area">
-      <div class="nav-action-login">
+      <div class="nav-action-login" *ngIf="!authService.isAuthenticated">
         <button type="button" class="button primary" (click)="openLoginModal()">Login</button>
+      </div>
+      <div class="nav-action-user" *ngIf="authService.isAuthenticated">
+        <span>{{ authService.displayName }}</span>
       </div>
       <div class="nav-action-search">
         <button type="button" class="button transparent">Search</button>
