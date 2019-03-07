@@ -3,9 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { transition, style, animate, trigger } from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+<<<<<<< HEAD
 
 import { LoginModalComponent } from 'src/app/authentication/login-modal/login-modal.component';
 import { AuthenticationService } from './../../authentication/authentication.service';
+=======
+import { FormBuilder, FormGroup } from '@angular/forms';
+>>>>>>> Adding authentication
 
 @Component({
   selector: 'app-navbar',
@@ -30,9 +34,14 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public router: Router,
+<<<<<<< HEAD
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
     private authService: AuthenticationService
+=======
+    private authService: AuthenticationService,
+    private formBuilder: FormBuilder
+>>>>>>> Adding authentication
   ) { }
 
   ngOnInit() {
