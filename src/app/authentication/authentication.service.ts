@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -67,7 +68,8 @@ export class AuthenticationService {
     return dialogRef.afterClosed().toPromise().then((result: Credentials) => {
       return this.login(result).then(async () => {
 
-        const authToken = localStorage.getItem('token');
+        const authToken = environment.authToken || localStorage.getItem('token');
+        console.log('AuthToken:', authToken);
         if (authToken) {
           return await this.verifyToken(authToken).then(() => {
             this.displayName = localStorage.getItem('displayName');
