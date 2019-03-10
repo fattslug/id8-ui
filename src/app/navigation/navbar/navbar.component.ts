@@ -1,6 +1,7 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { transition, style, animate, trigger } from '@angular/animations';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,16 +22,26 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   public isNavOpen = false;
+  public menuForm: FormGroup;
 
   constructor(
-    public router: Router
+    public router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.menuForm = this.formBuilder.group({
+      menuCheck: [false]
+    });
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationStart) {
+        this.menuForm.controls.menuCheck.setValue(false);
+      }
+    });
   }
 
   toggleNav() {
-    this.isNavOpen = !this.isNavOpen;
+    this.menuForm.controls.menuCheck.setValue(!this.menuForm.controls.menuCheck.value);
   }
 
 }

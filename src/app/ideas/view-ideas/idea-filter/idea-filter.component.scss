@@ -7,6 +7,10 @@
     padding: 0 15px;
     display: flex;
     flex-direction: row;
+
+    @media screen and (max-width: 425px) {
+      flex-direction: column;
+    }
   }
 
   &-section {
@@ -14,6 +18,10 @@
     flex-direction: column;
     align-items: center;
     margin: 5px;
+
+    @media screen and (max-width: 425px) {
+      position: relative;
+    }
 
     &__label {
       cursor: pointer;

@@ -1,6 +1,6 @@
-<header class="nav">
-  <input type="checkbox" class="nav-toggle" id="navToggle" />
-  <label for="navToggle" class="nav-toggle-label" (click)="toggleNav()">X</label>
+<header class="nav" [formGroup]="menuForm">
+  <input type="checkbox" class="nav-toggle" id="navToggle" formControlName="menuCheck" />
+  <label for="navToggle" class="nav-toggle-label">X</label>
   <div class="nav-logo"></div>
   <nav class="nav-links">
     <ul>
@@ -23,4 +23,4 @@
 </header>
 
 <div class="content-push"></div>
-<div class="overlay" *ngIf="isNavOpen" @fadeInOut></div>
+<div class="overlay" *ngIf="menuForm.controls.menuCheck.value" @fadeInOut></div>
