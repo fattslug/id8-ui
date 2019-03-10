@@ -1,6 +1,6 @@
 @import '../colors';
 
-input[type=text] {
+input[type=text], input[type=password], input[type=email] {
   font-size: 1em;
   background-color: $white;
   border: 1px solid $body-copy-grey-light-55;

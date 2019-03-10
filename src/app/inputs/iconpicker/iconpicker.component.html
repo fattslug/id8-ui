@@ -1,7 +1,7 @@
 <!-- Icon Display -->
 <label for="iconPicker" class="iconpicker-circle" [ngStyle]="{ backgroundColor: icon.color }" (click)="onTouched()">
   <div class="iconpicker-icon">
-    <img class="icon md" [src]="iconRoot + 'white/' + icon.icon + '-white.svg'" />
+    <img class="icon md img-label" [src]="iconRoot + 'white/' + icon.icon + '-white.svg'" />
   </div>
 </label>
 <input type="checkbox" id="iconPicker" class="iconpicker-checkbox" />
@@ -23,7 +23,7 @@
             class="iconpicker-icon-option" [value]="iconName" [(ngModel)]="icon.icon" (change)="updateIcon()"
           />
           <label [for]="'icon-'+iconName" class="iconpicker-icon-label">
-            <img class="icon sm"
+            <img class="icon sm img-label"
               [src]="iconRoot + (icon.icon === iconName ? 'white/' : 'dark/') + iconName + (icon.icon === iconName ? '-white.svg' : '-dark.svg')"
             />
           </label>

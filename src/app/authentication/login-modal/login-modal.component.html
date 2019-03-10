@@ -1,0 +1,14 @@
+<form class="loginform" [formGroup]="loginForm" (ngSubmit)="doLogin()">
+  <h1 class="heading-1">Login</h1>
+  <div class="loginform-input">
+    <label for="username">Username</label>
+    <input type="text" placeholder="e12345" formControlName="username" />
+  </div>
+  <div class="loginform-input">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" />
+  </div>
+  <div class="loginform-buttonarea">
+    <button type="submit" class="button primary">Login</button>
+  </div>
+</form>

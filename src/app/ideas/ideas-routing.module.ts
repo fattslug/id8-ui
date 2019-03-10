@@ -1,3 +1,4 @@
+import { AuthGuardService as AuthGuard } from './../authentication/authentication.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
@@ -9,13 +10,15 @@ const routes: Routes = [
     component: ViewIdeasComponent
   }, {
     path: 'add',
-    component: IdeaFormComponent
+    component: IdeaFormComponent,
+    canActivate: [AuthGuard]
   }, {
     path: ':ideaID',
     component: IdeaDetailsComponent
   }, {
     path: 'edit/:ideaID',
-    component: IdeaFormComponent
+    component: IdeaFormComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

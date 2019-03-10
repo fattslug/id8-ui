@@ -2,6 +2,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { transition, style, animate, trigger } from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+
+import { LoginModalComponent } from 'src/app/authentication/login-modal/login-modal.component';
+import { AuthenticationService } from './../../authentication/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +30,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -40,8 +46,14 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  toggleNav() {
+  public toggleNav() {
     this.menuForm.controls.menuCheck.setValue(!this.menuForm.controls.menuCheck.value);
+  }
+
+  public openLoginModal() {
+    this.authService.openLoginModal().catch((e) => {
+      console.log('Error logging in:', e);
+    });
   }
 
 }

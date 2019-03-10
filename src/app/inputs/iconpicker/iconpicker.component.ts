@@ -103,7 +103,7 @@ export class IconpickerComponent implements OnInit, ControlValueAccessor {
     test: 'test',
     warning: 'warning'
   };
-  public iconArray = Object.values(this.icons);
+  public iconArray = Object.keys(this.icons).map(e => this.icons[e]);
 
   // Color props
   public colors = {
@@ -118,7 +118,7 @@ export class IconpickerComponent implements OnInit, ControlValueAccessor {
     pink: '#C01B83',
     teal: '#009AB1',
   };
-  public colorArray = Object.values(this.colors);
+  public colorArray = Object.keys(this.colors).map(e => this.colors[e]);
 
   public icon: IdeaIcon = {
     icon: this.iconArray[this.randomNum(this.iconArray.length - 1)],

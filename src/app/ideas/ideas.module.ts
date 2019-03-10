@@ -1,5 +1,5 @@
+import { AuthGuardService } from './../authentication/authentication.guard';
 import { UtilitiesModule } from '../utilities/utilities.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,7 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { IdeasRoutingModule } from './ideas-routing.module';
 import { InputsModule } from '../inputs/inputs.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,16 +31,20 @@ import { InputsModule } from '../inputs/inputs.module';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     IdeasRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     InputsModule,
     UtilitiesModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   exports: [],
-  providers: [HttpClient],
+  providers: [
+    HttpClient,
+    AuthGuardService
+  ],
   entryComponents: [
     IdeaDetailsComponent
   ]

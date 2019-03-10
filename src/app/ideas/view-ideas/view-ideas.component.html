@@ -4,7 +4,8 @@
       Welcome to <span appId8Logo [logoStyle]="'light'">id[8]</span>
     </h1>
     <div class="button-area">
-      <button class="button primary" routerLink="/ideas/add">Submit an idea</button>
+      <button class="button primary" routerLink="/ideas/add" *ngIf="authService.isAuthenticated">Submit an idea</button>
+      <button class="button primary" (click)="openLoginModal()" *ngIf="!authService.isAuthenticated">Login to submit</button>
     </div>
   </div>
 </div>
