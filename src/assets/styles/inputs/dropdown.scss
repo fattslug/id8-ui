@@ -21,7 +21,7 @@
     width: 100%;
     box-shadow: 0 2px 2px 0 hsla(0,0%,80%,.5);
     box-sizing: border-box;
-  
+
     & ~ .dropdown-ui {
       background-position: -116px;
     }
@@ -50,9 +50,9 @@
     position: absolute;
     right: .125em;
     top: .125em;
-    height: 45px;
     -webkit-transition: background-color .35s;
     transition: background-color .35s;
     width: 3.125em;
+    height: 45px;
   }
 }

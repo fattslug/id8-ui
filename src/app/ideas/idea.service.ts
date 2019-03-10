@@ -45,7 +45,7 @@ export class IdeaService {
     let filterString = '?';
     Object.keys(filter).forEach((prop, index) => {
       if (index !== 0) {
-        filterString += '?';
+        filterString += '&';
       }
       filterString += `${prop}=${filter[prop]}`;
     });
@@ -89,6 +89,7 @@ export class IdeaService {
 export class IdeaFilter {
   public startDate?: Date;
   public endDate?: Date;
+  public quickDate?: string;
   public title?: string;
-  public businessAreas?: BusinessArea[];
+  public businessAreas?: string[];
 }

@@ -10,14 +10,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import {
   ViewIdeasComponent,
-  IdeaListComponent
+  IdeaListComponent,
+  IdeaFilterComponent,
+  IdeaDetailsComponent
 } from './view-ideas';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
-import { SharedModule } from './shared/shared.module';
 import { IdeasRoutingModule } from './ideas-routing.module';
 import { InputsModule } from '../inputs/inputs.module';
-import { IdeaDetailsComponent } from './view-ideas/idea-details/idea-details.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +25,11 @@ import { IdeaDetailsComponent } from './view-ideas/idea-details/idea-details.com
     IdeaFormComponent,
     DeleteModalComponent,
     IdeaListComponent,
-    IdeaDetailsComponent
+    IdeaDetailsComponent,
+    IdeaFilterComponent
   ],
   imports: [
     CommonModule,
-    SharedModule,
     IdeasRoutingModule,
     FormsModule,
     ReactiveFormsModule,

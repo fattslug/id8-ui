@@ -1,0 +1,50 @@
+<form class="ideafilter-container" [formGroup]="filterForm">
+  <div class="ideafilter-section" #submittedSection>
+
+    <!-- DATE RANGE FILTER -->
+    <div class="ideafilter-section__label" (click)="toggleSubmittedOpen()">
+      <span class="ideafilter-section__label-text">
+        Submitted:
+      </span>
+      <span class="ideafilter-section__label-value">
+        All time
+      </span>
+      <div class="ideafilter-section__label-arrow" [ngClass]="{ 'closed': !isSubmittedOpen, 'open': isSubmittedOpen }"></div>
+    </div>
+
+    <div class="ideafilter-section__dropdown" *ngIf="isSubmittedOpen">
+      <ul class="ideafilter-section__dropdown-list">
+        <li *ngFor="let option of dateOptions">
+          <input type="radio" [id]="option.value" formControlName="dateSubmitted" [value]="option.value" />
+          <label [for]="option.value">{{ option.label }}</label>
+        </li>
+      </ul>
+    </div>
+    <!-- END DATE RANGE FILTER -->
+
+  </div>
+  <div class="ideafilter-section" #businesSection>
+
+    <!-- BUSINESS AREA FILTER -->
+    <div class="ideafilter-section__label" (click)="toggleBusinessOpen()">
+      <span class="ideafilter-section__label-text">
+        Business Areas:
+      </span>
+      <span class="ideafilter-section__label-value">
+        All areas
+      </span>
+      <div class="ideafilter-section__label-arrow" [ngClass]="{ 'closed': !isBusinessOpen, 'open': isBusinessOpen }"></div>
+    </div>
+
+    <div class="ideafilter-section__dropdown" *ngIf="isBusinessOpen && businessAreaOptions">
+      <ul class="ideafilter-section__dropdown-list" [formGroup]="businessAreaForm">
+        <li *ngFor="let option of businessAreaOptions">
+          <input type="checkbox" [id]="option._id" [formControl]="businessAreaForm.get(option._id)" [value]="true" />
+          <label [for]="option._id">{{ option.name }}</label>
+        </li>
+      </ul>
+    </div>
+    <!-- END BUSINESS AREA FILTER -->
+
+  </div>
+</form>
