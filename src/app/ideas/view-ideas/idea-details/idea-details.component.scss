@@ -12,7 +12,11 @@
     padding: 30px;
   }
   &-title {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+
+    .heading-4 {
+      margin-bottom: 1em;
+    }
   }
 }
 

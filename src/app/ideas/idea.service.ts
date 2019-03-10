@@ -70,7 +70,7 @@ export class IdeaService {
   }
 
   public updateIdeaByID(ideaID: string, idea: Idea): Promise<Idea> {
-    let headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
+    const headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
 
     return this.http.put<Idea>(`http://localhost:3001/ideas/${ideaID}`, {
       idea: idea
