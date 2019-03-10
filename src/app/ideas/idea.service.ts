@@ -16,7 +16,7 @@ export class IdeaService {
   ) { }
 
   public addIdea(idea: Idea): Promise<string> {
-    let headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
+    let headers = new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')});
     
     return new Promise((resolve, reject) => {
       this.http.post<Idea>('http://localhost:3001/ideas/', {
@@ -71,6 +71,8 @@ export class IdeaService {
 
   public updateIdeaByID(ideaID: string, idea: Idea): Promise<Idea> {
     const headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
+
+    console.log('Updating idea:', idea);
 
     return this.http.put<Idea>(`http://localhost:3001/ideas/${ideaID}`, {
       idea: idea
