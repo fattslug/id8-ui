@@ -29,7 +29,7 @@ export class AuthenticationService {
 
   public login(creds: Credentials): Promise<boolean> {
     const encodedCreds = btoa(`${creds.username}:${creds.password}`);
-    let headers = new HttpHeaders({'Authorization': 'Basic ' + encodedCreds});
+    const headers = new HttpHeaders({'Authorization': 'Basic ' + encodedCreds});
 
     return this.http.post('http://localhost:3001/user/login', {}, {
       headers: headers,
@@ -42,7 +42,7 @@ export class AuthenticationService {
     }).catch((e) => {
       console.log(e);
       return Promise.reject(false);
-    }); 
+    });
   }
 
   public async verifyToken(authToken: string): Promise<boolean> {
@@ -53,12 +53,12 @@ export class AuthenticationService {
     }).toPromise().then((result: boolean) => {
       this.isAuthenticated = result;
       if (result) {
-        return result
+        return result;
       } else {
         localStorage.clear();
         throw(result);
       }
-    })
+    });
   }
 
   public async openLoginModal(): Promise<string | boolean> {
@@ -69,7 +69,7 @@ export class AuthenticationService {
 
         const authToken = localStorage.getItem('token');
         if (authToken) {
-          return await this.verifyToken(authToken).then((result: boolean) => {
+          return await this.verifyToken(authToken).then(() => {
             this.displayName = localStorage.getItem('displayName');
             this.authToken = authToken;
             this.snackBar.open('Successfully logged in', 'Dismiss', {
@@ -93,13 +93,13 @@ export class AuthenticationService {
           duration: 2000,
           panelClass: 'error'
         });
-        return false;e
-      })
+        return false;
+      });
     });
   }
 
   public async isAuthorized(idea: Idea): Promise<boolean> {
-    let headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
+    const headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
 
     return this.http.post<boolean>('http://localhost:3001/user/authorized', {
       idea: idea
@@ -111,7 +111,7 @@ export class AuthenticationService {
     }).catch((e) => {
       console.log('Error checking authorization', e);
       return false;
-    })
+    });
   }
 
 }
