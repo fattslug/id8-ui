@@ -28,21 +28,21 @@ export class AuthenticationService {
     }
   }
 
-  public login(creds: Credentials): Promise<boolean> {
+  public async login(creds: Credentials): Promise<string> {
     const encodedCreds = btoa(`${creds.username}:${creds.password}`);
     const headers = new HttpHeaders({'Authorization': 'Basic ' + encodedCreds});
 
     return this.http.post('http://localhost:3001/user/login', {}, {
       headers: headers,
       withCredentials: true
-    }).toPromise().then((result: User) => {
-      localStorage.setItem('displayName', result.displayName);
-      localStorage.setItem('token', encodedCreds);
+    }).toPromise().then((user: User) => {
+      localStorage.setItem('displayName', user.displayName);
+      localStorage.setItem('token', user.authToken);
       this.isAuthenticated = true;
-      return true;
+      return user.authToken;
     }).catch((e) => {
       console.log(e);
-      return Promise.reject(false);
+      return Promise.reject('Unable to login');
     });
   }
 
@@ -55,10 +55,11 @@ export class AuthenticationService {
       this.isAuthenticated = result;
       if (result) {
         return result;
-      } else {
-        localStorage.clear();
-        throw(result);
       }
+    }).catch((e) => {
+      console.log('Clearing localStorage...');
+      localStorage.clear();
+      throw(e);
     });
   }
 
@@ -66,12 +67,9 @@ export class AuthenticationService {
     const dialogRef = this.dialog.open(LoginModalComponent);
 
     return dialogRef.afterClosed().toPromise().then((result: Credentials) => {
-      return this.login(result).then(async () => {
+      return this.login(result).then(async (authToken) => {
 
-        const authToken = environment.authToken || localStorage.getItem('token');
-        console.log('AuthToken:', authToken);
         if (authToken) {
-          return await this.verifyToken(authToken).then(() => {
             this.displayName = localStorage.getItem('displayName');
             this.authToken = authToken;
             this.snackBar.open('Successfully logged in', 'Dismiss', {
@@ -79,13 +77,6 @@ export class AuthenticationService {
               panelClass: 'success'
             });
             return authToken;
-          }).catch((e) => {
-            this.snackBar.open('Error verifying user token', 'Dismiss', {
-              duration: 2000,
-              panelClass: 'error'
-            });
-            return false;
-          });
         }
         return false;
 
@@ -193,6 +184,8 @@ export interface Credentials {
 }
 
 export class User {
-  public token: string;
-  public displayName: string;
+  public _id?: string;
+  public username?: string;
+  public displayName?: string;
+  public authToken?: string;
 }
