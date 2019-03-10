@@ -36,11 +36,9 @@ export class IdeaFilterComponent implements OnInit, OnDestroy {
     }, {
       label: 'All time',
       value: 'all'
-    }, {
-      label: 'Custom date range...',
-      value: 'custom'
     }
   ];
+  public dateLabel: string;
 
   public businessAreaOptions: BusinessArea[];
   private selectedBusinessAreas: string[] = [];
@@ -68,6 +66,7 @@ export class IdeaFilterComponent implements OnInit, OnDestroy {
       dateSubmitted: ['all'],
       businessAreas: [this.businessAreaForm]
     });
+    this.dateLabel = 'All time';
   }
 
   async ngOnInit() {
@@ -89,6 +88,8 @@ export class IdeaFilterComponent implements OnInit, OnDestroy {
   private subscribeToFilterForm(): void {
     this.subscribeToBusinessFilter();
     this.filter$ = this.filterForm.valueChanges.subscribe((values) => {
+
+      this.dateLabel = this.dateOptions.find(option => option.value === values.dateSubmitted).label;
       const filter: IdeaFilter = {
         businessAreas: this.selectedBusinessAreas,
         quickDate: values.dateSubmitted

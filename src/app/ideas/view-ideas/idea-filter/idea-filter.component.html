@@ -7,7 +7,7 @@
         Submitted:
       </span>
       <span class="ideafilter-section__label-value">
-        All time
+        {{ dateLabel }}
       </span>
       <div class="ideafilter-section__label-arrow" [ngClass]="{ 'closed': !isSubmittedOpen, 'open': isSubmittedOpen }"></div>
     </div>
@@ -30,8 +30,11 @@
       <span class="ideafilter-section__label-text">
         Business Areas:
       </span>
-      <span class="ideafilter-section__label-value">
+      <span class="ideafilter-section__label-value" *ngIf="selectedBusinessAreas.length < 1">
         All areas
+      </span>
+      <span class="ideafilter-section__label-value" *ngIf="selectedBusinessAreas.length > 0">
+        {{ selectedBusinessAreas.length }} selected
       </span>
       <div class="ideafilter-section__label-arrow" [ngClass]="{ 'closed': !isBusinessOpen, 'open': isBusinessOpen }"></div>
     </div>
