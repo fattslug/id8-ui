@@ -69,23 +69,6 @@ export class IdeaFormComponent implements OnInit {
     }
   }
 
-  private async getIdea(): Promise<Idea> {
-    let ideaID;
-    await this.route.params.subscribe(async (params) => {
-      if (params.ideaID) {
-        this.mode = 'edit';
-        ideaID = params.ideaID;
-      }
-    });
-    if (ideaID) {
-      return await this.ideaService.getIdeaByID(ideaID).then((idea: Idea) => {
-        return idea;
-      });
-    } else {
-      return new Idea();
-    }
-  }
-
   private async getBusinessAreas(): Promise<BusinessArea[]> {
     return await this.ideaService.getBusinessAreas();
   }
