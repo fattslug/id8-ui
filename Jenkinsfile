@@ -40,6 +40,8 @@ node('digital') {
         npm cache clean --force
         npm install load-json-file
         npm install p-is-promise
+        npm install @types/source-list-map@0.1.2
+        npm install @types/webpack-sources@0.1.5
         npm i @angular/cli@7.3.6 --registry https://qa.artifactory.ana.corp.aviva.com/artifactory/api/npm/digital-dev-npm/
         npm install node-sass --ignore-scripts --registry https://qa.artifactory.ana.corp.aviva.com/artifactory/api/npm/digital-dev-npm/
         curl -k -uaviva-catalyst-npm-readonly:AKCp5btpAkxQJiFeQMqtatXHoyBp5MUVDNTsG27vptwxT31Mkdp2dZPspck2GGHvTv4F4CtdZ -O "https://qa.artifactory.ana.corp.aviva.com/artifactory/aviva-catalyst-npm/node-v8.9.2-headers.tar.gz"
