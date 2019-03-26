@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { OperatorFunction, Observable, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
+import { environment } from './../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +21,7 @@ export class IdeaService {
     let headers = new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')});
     
     return new Promise((resolve, reject) => {
-      this.http.post<Idea>('http://localhost:3001/ideas/', {
+      this.http.post<Idea>(`${environment.serviceUrl}/ideas/`, {
         idea: idea
       }, {
         headers: headers,
@@ -39,7 +41,7 @@ export class IdeaService {
       filterParams = this.buildFilterParams(filter);
     }
 
-    this.http.get<Idea[]>(`http://localhost:3001/ideas${filterParams}`, {
+    this.http.get<Idea[]>(`${environment.serviceUrl}/ideas${filterParams}`, {
       withCredentials: true
     }).pipe(
       catchError(this.handleError)
@@ -60,7 +62,7 @@ export class IdeaService {
   }
 
   public getIdeaByID(ideaID: string): Promise<Idea> {
-    return this.http.get<Idea>(`http://localhost:3001/ideas/${ideaID}`, {
+    return this.http.get<Idea>(`${environment.serviceUrl}/ideas/${ideaID}`, {
       withCredentials: true
     }).pipe(
       catchError(this.handleError)
@@ -74,7 +76,7 @@ export class IdeaService {
 
     console.log('Updating idea:', idea);
 
-    return this.http.put<Idea>(`http://localhost:3001/ideas/${ideaID}`, {
+    return this.http.put<Idea>(`${environment.serviceUrl}/ideas/${ideaID}`, {
       idea: idea
     }, {
       headers: headers,
@@ -88,7 +90,7 @@ export class IdeaService {
 
   public getBusinessAreas(): Promise<BusinessArea[]> {
     return new Promise((resolve, reject) => {
-      this.http.get<BusinessArea[]>('http://localhost:3001/businessareas/', {
+      this.http.get<BusinessArea[]>(`${environment.serviceUrl}/businessareas/`, {
         withCredentials: true
       })
       .pipe(

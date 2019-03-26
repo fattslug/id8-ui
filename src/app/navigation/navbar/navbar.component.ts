@@ -2,12 +2,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { transition, style, animate, trigger } from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';
+<<<<<<< HEAD
 import { MatDialog } from '@angular/material/dialog';
 <<<<<<< HEAD
 
 import { LoginModalComponent } from 'src/app/authentication/login-modal/login-modal.component';
 import { AuthenticationService } from './../../authentication/authentication.service';
 =======
+=======
+>>>>>>> Fixing build, adding Jenkinsfile
 import { FormBuilder, FormGroup } from '@angular/forms';
 >>>>>>> Adding authentication
 
@@ -35,11 +38,15 @@ export class NavbarComponent implements OnInit {
   constructor(
     public router: Router,
 <<<<<<< HEAD
+<<<<<<< HEAD
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
     private authService: AuthenticationService
 =======
     private authService: AuthenticationService,
+=======
+    public authService: AuthenticationService,
+>>>>>>> Fixing build, adding Jenkinsfile
     private formBuilder: FormBuilder
 >>>>>>> Adding authentication
   ) { }

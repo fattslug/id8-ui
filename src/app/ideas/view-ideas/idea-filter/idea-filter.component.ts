@@ -41,7 +41,7 @@ export class IdeaFilterComponent implements OnInit, OnDestroy {
   public dateLabel: string;
 
   public businessAreaOptions: BusinessArea[];
-  private selectedBusinessAreas: string[] = [];
+  public selectedBusinessAreas: string[] = [];
 
   // Subscriptions
   private filter$: Subscription;

@@ -1,10 +1,11 @@
-import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Idea } from '../ideas/idea';
+
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class AuthenticationService {
     const encodedCreds = btoa(`${creds.username}:${creds.password}`);
     const headers = new HttpHeaders({'Authorization': 'Basic ' + encodedCreds});
 
-    return this.http.post('http://localhost:3001/user/login', {}, {
+    return this.http.post(`${environment.serviceUrl}/user/login`, {}, {
       headers: headers,
       withCredentials: true
     }).toPromise().then((user: User) => {
@@ -47,7 +48,7 @@ export class AuthenticationService {
   }
 
   public async verifyToken(authToken: string): Promise<boolean> {
-    return this.http.post('http://localhost:3001/user/verify', {
+    return this.http.post(`${environment.serviceUrl}/user/verify`, {
       token: authToken
     }, {
       withCredentials: true
@@ -94,7 +95,7 @@ export class AuthenticationService {
   public async isAuthorized(idea: Idea): Promise<boolean> {
     const headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
 
-    return this.http.post<boolean>('http://localhost:3001/user/authorized', {
+    return this.http.post<boolean>(`${environment.serviceUrl}/user/authorized`, {
       idea: idea
     }, {
       headers: headers,
