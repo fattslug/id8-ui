@@ -38,7 +38,7 @@ node('digital') {
         node -v
         npm -v
         npm cache clean --force
-        npm i @angular/cli@7.3.6 --registry https://qa.artifactory.ana.corp.aviva.com/artifactory/api/npm/digital-dev-npm/
+        npm i @angular/cli@7.0.3 --registry https://qa.artifactory.ana.corp.aviva.com/artifactory/api/npm/digital-dev-npm/
         npm install node-sass --ignore-scripts --registry https://qa.artifactory.ana.corp.aviva.com/artifactory/api/npm/digital-dev-npm/
         curl -k -uaviva-catalyst-npm-readonly:AKCp5btpAkxQJiFeQMqtatXHoyBp5MUVDNTsG27vptwxT31Mkdp2dZPspck2GGHvTv4F4CtdZ -O "https://qa.artifactory.ana.corp.aviva.com/artifactory/aviva-catalyst-npm/node-v8.9.2-headers.tar.gz"
         cd node_modules/node-sass
