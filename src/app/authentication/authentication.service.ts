@@ -71,13 +71,13 @@ export class AuthenticationService {
       return this.login(result).then(async (authToken) => {
 
         if (authToken) {
-            this.displayName = localStorage.getItem('displayName');
-            this.authToken = authToken;
-            this.snackBar.open('Successfully logged in', 'Dismiss', {
-              duration: 2000,
-              panelClass: 'success'
-            });
-            return authToken;
+          this.displayName = localStorage.getItem('displayName');
+          this.authToken = authToken;
+          this.snackBar.open('Successfully logged in', 'Dismiss', {
+            duration: 2000,
+            panelClass: 'success'
+          });
+          return authToken;
         }
         return false;
 
@@ -106,75 +106,6 @@ export class AuthenticationService {
       console.log('Error checking authorization', e);
       return false;
     });
-  }
-
-  public async verifyToken(authToken: string): Promise<boolean> {
-    return this.http.post('http://localhost:3001/user/verify', {
-      token: authToken
-    }, {
-      withCredentials: true
-    }).toPromise().then((result: boolean) => {
-      this.isAuthenticated = result;
-      if (result) {
-        return result
-      } else {
-        localStorage.clear();
-        throw(result);
-      }
-    })
-  }
-
-  public async openLoginModal(): Promise<string | boolean> {
-    const dialogRef = this.dialog.open(LoginModalComponent);
-
-    return dialogRef.afterClosed().toPromise().then((result: Credentials) => {
-      return this.login(result).then(async () => {
-
-        const authToken = localStorage.getItem('token');
-        if (authToken) {
-          return await this.verifyToken(authToken).then((result: boolean) => {
-            this.displayName = localStorage.getItem('displayName');
-            this.authToken = authToken;
-            this.snackBar.open('Successfully logged in', 'Dismiss', {
-              duration: 2000,
-              panelClass: 'success'
-            });
-            return authToken;
-          }).catch((e) => {
-            this.snackBar.open('Error verifying user token', 'Dismiss', {
-              duration: 2000,
-              panelClass: 'error'
-            });
-            return false;
-          });
-        }
-        return false;
-
-      }).catch(e => {
-        console.log('LOGIN FAILED', e);
-        this.snackBar.open('Error logging in', 'Dismiss', {
-          duration: 2000,
-          panelClass: 'error'
-        });
-        return false;e
-      })
-    });
-  }
-
-  public async isAuthorized(idea: Idea): Promise<boolean> {
-    let headers = new HttpHeaders({'Authorization': 'Basic ' + localStorage.getItem('token')});
-
-    return this.http.post<boolean>('http://localhost:3001/user/authorized', {
-      idea: idea
-    }, {
-      headers: headers,
-      withCredentials: true
-    }).toPromise().then((result: boolean) => {
-      return result;
-    }).catch((e) => {
-      console.log('Error checking authorization', e);
-      return false;
-    })
   }
 
 }
