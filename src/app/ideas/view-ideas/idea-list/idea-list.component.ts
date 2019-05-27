@@ -37,7 +37,7 @@ export class IdeaListComponent implements OnInit, OnDestroy {
   public ideasGrid: IdeaColumns;
   public iconRoot = '../../../../assets/images/icons/functional/';
 
-  private ideas: Idea[];
+  public ideas: Idea[];
   private ideaSubscription: Subscription;
 
   @HostListener('window:resize', ['$event'])

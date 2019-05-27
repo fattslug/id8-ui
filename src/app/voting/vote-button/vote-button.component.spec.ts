@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IdeasFilterComponent } from './ideas-filter.component';
+import { VoteButtonComponent } from './vote-button.component';
 
-describe('IdeasFilterComponent', () => {
-  let component: IdeasFilterComponent;
-  let fixture: ComponentFixture<IdeasFilterComponent>;
+describe('VoteButtonComponent', () => {
+  let component: VoteButtonComponent;
+  let fixture: ComponentFixture<VoteButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IdeasFilterComponent ]
+      declarations: [ VoteButtonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IdeasFilterComponent);
+    fixture = TestBed.createComponent(VoteButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -18,7 +18,6 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { IdeasRoutingModule } from './ideas-routing.module';
 import { InputsModule } from '../inputs/inputs.module';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule,
     IdeasRoutingModule,
     FormsModule,
     ReactiveFormsModule,

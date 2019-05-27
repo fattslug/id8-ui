@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+    ReactiveFormsModule,
     AuthenticationModule
   ],
   exports: [
