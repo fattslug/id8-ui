@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serviceUrl: 'http://localhost:2999'
+  serviceUrl: 'https://qa.admin.vendor-lookup.ana.corp.aviva.com/id8-services'
 };

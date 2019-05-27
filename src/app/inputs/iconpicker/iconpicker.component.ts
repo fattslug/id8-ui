@@ -79,7 +79,7 @@ export class IconpickerComponent implements OnInit, ControlValueAccessor {
   public screen = 'icons';
 
   // Icon props
-  public iconRoot = '../../assets/images/icons/functional/';
+  public iconRoot = '../../id8/assets/images/icons/functional/';
   public icons = {
     bot: 'bot',
     calculator: 'calculator',
